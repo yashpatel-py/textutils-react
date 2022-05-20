@@ -4,14 +4,17 @@ import React, {useState} from 'react'
 export default function TextForm(props) {
     // This is the text for uppar case text to lower case
     const handleDownClick = () => {
-        // console.log('Lower case button was clicked' + text)
         let newText = text.toLowerCase()
         setText(newText)
     }
 
+    const handleClearText = () => {
+        let clearText = ''
+        setText(clearText)
+    }
+
     // This is a finction for converting lower case to uppaercase
     const handleUpClick = () => {
-        // console.log('Uppaer case button was clicked' + text)
         let newText = text.toUpperCase()
         setText(newText)
     }
@@ -23,10 +26,11 @@ export default function TextForm(props) {
     }
 
 
-    const [text, setText] = useState('Enter text here..');
+    const [text, setText] = useState('');
 
     return (
-        <div>
+        <>
+        <div className='container'>
             <h1>{props.heading}</h1>
             <div className="mb-3">
                 <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="8"></textarea>
@@ -35,7 +39,20 @@ export default function TextForm(props) {
             <button className="btn btn-outline-primary me-2" onClick={handleUpClick} >Convert to uppercase</button>
 
             {/* Conver to lower case */}
-            <button className="btn btn-outline-info" onClick={handleDownClick} >Convert to uppercase</button>
+            <button className="btn btn-outline-info me-2" onClick={handleDownClick} >Convert to uppercase</button>
+
+            {/* Conver to lower case */}
+            <button className="btn btn-outline-danger me-2" onClick={handleClearText} >Clear Text</button>
         </div>
+        <div className="container my-3">
+            <h3>Your text summary</h3>
+            <p>{text.split(" ").length} world, {text.length} characters</p>
+            <p>{0.008 * text.split(" ").length} Minuter to read</p>
+            <div className="bg-warning rounded p-3">
+                <h3>Text Preview</h3>
+                <p>{text}</p>
+            </div>
+        </div>
+        </>
     )
 }
