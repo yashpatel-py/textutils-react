@@ -43,10 +43,10 @@ export default function TextForm(props) {
 
     return (
         <>
-        <div className='container'>
+        <div className='container' style={{color: props.mode === 'dark'?'white':'black'}}>
             <h1>{props.heading}</h1>
             <div className="mb-3">
-                <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="8"></textarea>
+                <textarea className="form-control" value={text} style={{backgroundColor: props.mode === 'dark'?'grey':'white', color: props.mode === 'dark'?'white':'black'}} onChange={handleOnChange} id="myBox" rows="8"></textarea>
             </div>
             {/* Convert to upparcase */}
             <button className="btn btn-primary me-2" onClick={handleUpClick} >Convert to uppercase</button>
@@ -63,7 +63,7 @@ export default function TextForm(props) {
             {/* Extra Space */}
             <button className="btn btn-primary me-2" onClick={handleExtraSpaces} >Remove extra space</button>
         </div>
-        <div className="container my-3">
+        <div className="container my-3" style={{color: props.mode === 'dark'?'white':'black'}}>
             <h3>Your text summary</h3>
             <p>{text.split(" ").length} world, {text.length} characters</p>
             <p>{0.008 * text.split(" ").length} Minuter to read</p>

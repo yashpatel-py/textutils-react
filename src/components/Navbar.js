@@ -71,7 +71,7 @@ export default function Navbar(props) {
                     </ul>
                 </div>
                 <FormGroup>
-                <FormControlLabel
+                <FormControlLabel onClick={props.toggleMode}
                     control={<MaterialUISwitch sx={{m: 1}} defaultChecked />}
                     label=""
                 />
