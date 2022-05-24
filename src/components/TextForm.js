@@ -25,6 +25,14 @@ export default function TextForm(props) {
         setText(event.target.value)
     }
 
+    // Copy text function
+    const handleCopy = () => {
+        var text = document.getElementById("myBox");
+        text.select();
+        text.setSelectionRange(0, 9999);
+        navigator.clipboard.writeText(text.value)
+    }
+
 
     const [text, setText] = useState('');
 
@@ -40,6 +48,9 @@ export default function TextForm(props) {
 
             {/* Conver to lower case */}
             <button className="btn btn-outline-info me-2" onClick={handleDownClick} >Convert to uppercase</button>
+
+            {/* Copy text */}
+            <button className="btn btn-outline-warning me-2" onClick={handleCopy} >Copy Text</button>
 
             {/* Conver to lower case */}
             <button className="btn btn-outline-danger me-2" onClick={handleClearText} >Clear Text</button>
