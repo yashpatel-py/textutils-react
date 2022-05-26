@@ -5,12 +5,12 @@ import TextForm from './components/TextForm';
 // import AboutUs from './components/AboutUs'
 
 function App() {
-  const [mode, setMode] = useState('dark')
+  const [mode, setMode] = useState('light')
 
   const toggleMode = () => {
     if(mode === 'light'){
       setMode('dark');
-      document.body.style.backgroundColor = 'gray';
+      document.body.style.backgroundColor = '#042743';
     }
     else {
       setMode('light');
