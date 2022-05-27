@@ -6,17 +6,20 @@ export default function TextForm(props) {
     const handleDownClick = () => {
         let newText = text.toLowerCase()
         setText(newText)
+        props.showAlert("Converted to lowercase", "success")
     }
 
     const handleClearText = () => {
         let clearText = ''
         setText(clearText)
+        props.showAlert("Text has been cleared", "success")
     }
 
     // This is a finction for converting lower case to uppaercase
     const handleUpClick = () => {
         let newText = text.toUpperCase()
         setText(newText)
+        props.showAlert("Converted to uppercase", "success")
     }
 
     // This is a function for handling text into TextArea
@@ -30,12 +33,14 @@ export default function TextForm(props) {
         var text = document.getElementById("myBox");
         text.select();
         navigator.clipboard.writeText(text.value)
+        props.showAlert("Text has been copied", "success")
     }
 
     // Handling Extra spaces
     const handleExtraSpaces = () => {
         let newText = text.split(/[ ]+/);
         setText(newText.join(" "))
+        props.showAlert("Extra space has been removed", "success")
     }
 
 
@@ -52,7 +57,7 @@ export default function TextForm(props) {
             <button className="btn btn-primary me-2" onClick={handleUpClick} >Convert to uppercase</button>
 
             {/* Conver to lower case */}
-            <button className="btn btn-primary me-2" onClick={handleDownClick} >Convert to uppercase</button>
+            <button className="btn btn-primary me-2" onClick={handleDownClick} >Convert to lowercase</button>
 
             {/* Copy text */}
             <button className="btn btn-primary me-2" onClick={handleCopy} >Copy Text</button>
