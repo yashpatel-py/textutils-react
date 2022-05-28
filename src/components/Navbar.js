@@ -4,6 +4,7 @@ import {styled} from "@mui/material/styles";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch from "@mui/material/Switch";
+import { Link } from 'react-router-dom';
 
 const MaterialUISwitch = styled(Switch)(({theme}) => ({
 	width: 62,
@@ -63,10 +64,12 @@ export default function Navbar(props) {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <a className="nav-link active" aria-current="page" href="/">Home</a>
+                            {/* <a className="nav-link active" aria-current="page" href="/">Home</a> */}
+							<Link to="/" className="nav-link active" > Home </Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/">{props.aboutText}</a>
+							{/* <a className="nav-link active" aria-current="page" href="/about">{props.aboutText}</a> */}
+							<Link to="/about" className="nav-link active">{props.aboutText}</Link>
                         </li>
                     </ul>
                 </div>
